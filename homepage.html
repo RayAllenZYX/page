@@ -1,0 +1,845 @@
+﻿<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="sitename" content="安阳市水利局地温科"/>
+    <title>安阳市水利局地温科欢迎您！</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/homepage.css" />
+	<script type="text/javascript" src="js/homepage.js"></script>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jssor.js"></script>
+	<script type="text/javascript" src="js/jssor.slider.js"></script>
+	<script>
+	<!-- 新闻图片代码 -- >
+	jQuery(document).ready(function ($) {
+
+		var _SlideshowTransitions = [
+		//Fade in R
+		{$Duration: 1000, x: -0.3, $During: { $Left: [0.3, 0.7] }, $Easing: { $Left: $JssorEasing$.$EaseInCubic, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 }
+		//Fade out L
+		, { $Duration: 1000, x: 0.3, $SlideOut: true, $Easing: { $Left: $JssorEasing$.$EaseInCubic, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 }
+		];
+
+		var options = {
+			$AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+			$AutoPlaySteps: 1,                                  //[Optional] Steps to go for each navigation request (this options applys only when slideshow disabled), the default value is 1
+			$AutoPlayInterval: 3000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+			$PauseOnHover: 1,                               //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
+
+			$ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
+			$SlideDuration: 500,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+			$MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
+			//$SlideWidth: 600,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+			//$SlideHeight: 300,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+			$SlideSpacing: 0, 					                //[Optional] Space between each slide in pixels, default value is 0
+			$DisplayPieces: 1,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
+			$ParkingPosition: 0,                                //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
+			$UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
+			$PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+			$DragOrientation: 3,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+
+			$SlideshowOptions: {                                //[Optional] Options to specify and enable slideshow or not
+				$Class: $JssorSlideshowRunner$,                 //[Required] Class to create instance of slideshow
+				$Transitions: _SlideshowTransitions,            //[Required] An array of slideshow transitions to play slideshow
+				$TransitionsOrder: 1,                           //[Optional] The way to choose transition to play slide, 1 Sequence, 0 Random
+				$ShowLink: true                                    //[Optional] Whether to bring slide link on top of the slider when slideshow is running, default value is false
+			},
+
+			$BulletNavigatorOptions: {                                //[Optional] Options to specify and enable navigator or not
+				$Class: $JssorBulletNavigator$,                       //[Required] Class to create navigator instance
+				$ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+				$Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
+				$SpacingX: 10,                                   //[Optional] Horizontal space between each item in pixel, default value is 0
+				$SpacingY: 10                                    //[Optional] Vertical space between each item in pixel, default value is 0
+			},
+
+			$ArrowNavigatorOptions: {
+				$Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
+				$ChanceToShow: 2,                                //[Required] 0 Never, 1 Mouse Over, 2 Always
+				$AutoCenter: 2                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+			},
+
+			$ThumbnailNavigatorOptions: {
+				$Class: $JssorThumbnailNavigator$,              //[Required] Class to create thumbnail navigator instance
+				$ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+				$ActionMode: 0,                                 //[Optional] 0 None, 1 act by click, 2 act by mouse hover, 3 both, default value is 1
+				$DisableDrag: true                              //[Optional] Disable drag or not, default value is false
+			}
+		};
+
+		var jssor_sliderb = new $JssorSlider$("sliderb_container", options);
+		//responsive code begin
+		//you can remove responsive code if you don't want the slider scales while window resizes
+		function ScaleSlider() {
+			var parentWidth = jssor_sliderb.$Elmt.parentNode.clientWidth;
+			if (parentWidth)
+				jssor_sliderb.$ScaleWidth(Math.min(parentWidth, 330));
+			else
+				window.setTimeout(ScaleSlider, 30);
+		}
+		ScaleSlider();
+
+		$(window).bind("load", ScaleSlider);
+		$(window).bind("resize", ScaleSlider);
+		$(window).bind("orientationchange", ScaleSlider);
+		//responsive code end
+	});
+</script>
+<!-- 网站抬头 -->
+<script>
+	jQuery(document).ready(function ($) {
+
+		var _HeaderSlideshowTransitions = [
+		//Fade in R
+		{$Duration: 3000, x: -0.3, $During: { $Left: [0.3, 0.7] }, $Easing: { $Left: $JssorEasing$.$EaseInCubic, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 }
+		//Fade out L
+		, { $Duration: 1200, x: 0.3, $SlideOut: true, $Easing: { $Left: $JssorEasing$.$EaseInCubic, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 }
+		];
+
+		var options = {
+			$AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+			$AutoPlaySteps: 1,                                  //[Optional] Steps to go for each navigation request (this options applys only when slideshow disabled), the default value is 1
+			$AutoPlayInterval: 4000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+			$PauseOnHover: 1,                               //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
+
+			$ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
+			$SlideDuration: 500,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+			$MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
+			//$SlideWidth: 600,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+			//$SlideHeight: 300,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+			$SlideSpacing: 0, 					                //[Optional] Space between each slide in pixels, default value is 0
+			$DisplayPieces: 1,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
+			$ParkingPosition: 0,                                //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
+			$UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
+			$PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+			$DragOrientation: 3,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+
+			$SlideshowOptions: {                                //[Optional] Options to specify and enable slideshow or not
+				$Class: $JssorSlideshowRunner$,                 //[Required] Class to create instance of slideshow
+				$Transitions: _HeaderSlideshowTransitions,            //[Required] An array of slideshow transitions to play slideshow
+				$TransitionsOrder: 1,                           //[Optional] The way to choose transition to play slide, 1 Sequence, 0 Random
+				$ShowLink: true                                    //[Optional] Whether to bring slide link on top of the slider when slideshow is running, default value is false
+			},
+
+			$BulletNavigatorOptions: {                                //[Optional] Options to specify and enable navigator or not
+				$Class: $JssorBulletNavigator$,                       //[Required] Class to create navigator instance
+				$ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+				$Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
+				$SpacingX: 10,                                   //[Optional] Horizontal space between each item in pixel, default value is 0
+				$SpacingY: 10                                    //[Optional] Vertical space between each item in pixel, default value is 0
+			},
+
+			$ArrowNavigatorOptions: {
+				$Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
+				$ChanceToShow: 2,                                //[Required] 0 Never, 1 Mouse Over, 2 Always
+				$AutoCenter: 2                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+			},
+
+			$ThumbnailNavigatorOptions: {
+				$Class: $JssorThumbnailNavigator$,              //[Required] Class to create thumbnail navigator instance
+				$ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+				$ActionMode: 0,                                 //[Optional] 0 None, 1 act by click, 2 act by mouse hover, 3 both, default value is 1
+				$DisableDrag: true                              //[Optional] Disable drag or not, default value is false
+			}
+		};
+
+		var jssor_sliderb = new $JssorSlider$("header_container", options);
+		//responsive code begin
+		//you can remove responsive code if you don't want the slider scales while window resizes
+		function ScaleSlider() {
+			var parentWidth = jssor_sliderb.$Elmt.parentNode.clientWidth;
+			if (parentWidth)
+				jssor_sliderb.$ScaleWidth(Math.min(parentWidth, 550));
+			else
+				window.setTimeout(ScaleSlider, 30);
+		}
+		ScaleSlider();
+
+		$(window).bind("load", ScaleSlider);
+		$(window).bind("resize", ScaleSlider);
+		$(window).bind("orientationchange", ScaleSlider);
+		//responsive code end
+	});
+</script>
+	<style>
+	  body,td,th
+	  {
+	    font-size : 9pt;
+	  }
+	  body
+	  {
+	    margin-left : 0px;
+		margin-top : 0px;
+		margin-right : 0px;
+		margin-bottom : 0px;
+	  }
+	  a
+	  {
+	    font-size : 9pt;
+		color : #000;
+	  }
+	  a:link
+	  {
+	    text-decoration : none;
+	  }
+	  a:visited
+	  {
+	    text-decoration : none;
+		color : #000;
+	  }
+	  a:hover
+	  {
+	    text-decoration : none;
+		color : #408ed6;
+	  }
+	  a:active
+	  {
+	    text-decoration : none;
+	  }
+	</style>
+  </head>
+  <body>
+    <div id="wholeLayoutDiv">
+	
+	<!-- 首页基本操作、首页图片、菜单 -->
+    <table id="table1" border="0" cellpadding="0" cellspacing="0" width="1100" style="margin:auto">
+	    <td bgcolor="#FFF">
+		  <table id="table11" border="0" cellpadding="0" cellspacing="0">
+		    <!-- 首页基本操作 -->
+		    <tr>
+			  <td>
+			    <img src="images/index_01.jpg" width="794" height="34" />
+			  </td>
+			  <td>
+			    <a title="设为首页" onclick="setHomePage()" href='#'>
+				  <img src="images/index_02.jpg" alt="设为首页" width="102" height="34" border="0" />
+				</a>
+		      </td>
+			  <td>
+			    <a title="加入收藏" href='javascript:addFav()'>
+				  <img src="images/index_03.jpg" alt="加入收藏" width="102" height="34" border="0" />
+				</a>
+			  </td>
+			  <td>
+			    <a title="联系我们" href=mailto:dwdrk2009@163.com>
+				  <img src="images/index_04.jpg" alt="联系我们" width="102" height="34" border="0" />
+				</a>
+			  </td>
+			</tr>
+		  </table>
+		</td>
+	</table>
+			<!-- 首页图片 -->
+	<table border="0" cellpadding="0" cellspacing="0" width="1100" style="margin:auto">
+		<tr>
+		  <td><img src="images/headerImg/00.jpg" /></td>
+		  <td>
+			<div id="header_container" style="position: relative; width: 550px;
+				height: 280px; overflow: hidden;">
+
+				<!-- Slides Container -->
+				<div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 550px; height: 310px;
+					overflow: hidden;">
+					<div>
+						<a href="http://www.baidu.com" target="_blank"><img u=image src="images/headerImg/01.jpg" href="www.baidu.com" /></a>
+					</div>
+					<div>
+						<a href="http://www.baidu.com" target="_blank"><img u=image src="images/headerImg/02.jpg" href="www.baidu.com" /></a>
+					</div>
+					<div>
+						<a href="http://www.baidu.com" target="_blank"><img u=image src="images/headerImg/03.jpg" href="www.baidu.com" /></a>
+					</div>
+				</div>
+			</div>
+		  </td>
+		</tr>
+	</table>
+	<!-- 菜单 -->
+	<table>
+	  <td>
+		<tr>
+		  <style type="text/css"> 
+		  
+		  A.ttt:link { text-decoration: none; FONT-SIZE: 14px; FONT-WEIGHT: bold; color:#FFFFFF} 
+		  A.ttt:visited { text-decoration: none; FONT-SIZE: 14px; FONT-WEIGHT: bold; color:#FFFFFF} 
+		  A.ttt:hover { text-decoration: none; FONT-SIZE: 14px; FONT-WEIGHT: bold; color:#DA1} 
+		  A.ttt:active { text-decoration: none; FONT-SIZE: 14px; FONT-WEIGHT: bold; color:#FFFFFF} 
+		  </style>
+		  
+		  <table border="0" cellspacing="0" cellpadding="0" width="1100" align="center" height="32">
+
+			<tr bgcolor="#27408B">
+				<td width="158" align="middle"><a class="ttt" href="/viewCmsCac.do?cacId=ff8080813d39325c013d47eb86047cf1">首页</a></td>
+				<td width="157" align="middle"><a class="ttt" href="" target="_blank">管理机构</a></td>
+				<td width="157" align="middle"><a class="ttt" href="" target="_blank">水务要闻</a></td>
+				<td width="157" align="middle"><a class="ttt" href="" target="_blank">审批流程</a></td>
+				<td width="157" align="middle"><a class="ttt" href="" target="_blank">政策法规</a></td>
+				<td width="157" align="middle"><a class="ttt" href="https://211.144.20.184/" target="_blank">文件下载</a></td>
+				<td width="157" align="middle"><a class="ttt" href="" target="_blank">公告栏</a></td>
+			</tr>
+
+		  </table>
+		</tr>
+	</table>
+	
+	<!-- 图片新闻、水务要闻、公告栏 -->
+	<table id="table2" border="0" cellpadding="0" cellspacing="0" width="1100" style="margin:auto">
+	<tr>
+	  <!-- 图片新闻 -->
+	  <td width="335">
+		<div id="sliderb_container" style="position: relative; width: 330px;
+			height: 310px; overflow: hidden;">
+
+			<!-- Loading Screen -->
+			<div u="loading" style="position: absolute; top: 0px; left: 0px;">
+				<div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+					background-color: #000; top: 0px; left: 0px;width: 100%;height:100%;">
+				</div>
+				<div style="position: absolute; display: block; background: url(../img/loading.gif) no-repeat center center;
+					top: 0px; left: 0px;width: 100%;height:100%;">
+				</div>
+			</div>
+
+			<!-- Slides Container -->
+			<div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 330px; height: 310px;
+				overflow: hidden;">
+				<div>
+					<a href="http://www.baidu.com" target="_blank"><img u=image src="images/newsImg/01.jpg" href="www.baidu.com" /></a>
+					<div u="thumb">领导现场指导工作</div>
+				  
+				</div>
+				<div>
+					<a href="http://www.baidu.com" target="_blank"><img u=image src="images/newsImg/02.jpg" href="www.baidu.com" /></a>
+					<div u="thumb">领导来视察参加什么大会1</div>
+				</div>
+				<div>
+					<a href="http://www.baidu.com" target="_blank"><img u=image src="images/newsImg/03.jpg" href="www.baidu.com" /></a>
+					<div u="thumb">领导来视察参加什么大会2</div>
+				</div>
+				<div>
+					<a href="http://www.baidu.com" target="_blank"><img u=image src="images/newsImg/04.jpg" href="www.baidu.com" /></a>
+					<div u="thumb">领导来视察参加什么大会3</div>
+				</div>
+			</div>
+			<!-- 图片标题 -->
+			<div u="thumbnavigator" class="sliderb-T" style="position: absolute; bottom: 0px; left: 0px; height:45px; width:330px;">
+				<div style="filter: alpha(opacity=40); opacity:0.4; position: absolute; display: block;
+					background-color: #000000; top: 0px; left: 0px; width: 100%; height: 100%;">
+				</div>
+				<!-- Thumbnail Item Skin Begin -->
+				<div u="slides">
+					<div u="prototype" style="POSITION: absolute; WIDTH: 330px; HEIGHT: 45px; TOP: 0; LEFT: 0;">
+						<div u="thumbnailtemplate" style="font-family: verdana; font-weight: normal; POSITION: absolute; WIDTH: 100%; HEIGHT: 100%; TOP: 0; LEFT: 0; color:#fff; line-height: 45px; font-size:20px; padding-left:10px;"></div>
+					</div>
+				</div>
+				<!-- Thumbnail Item Skin End -->
+			</div>
+			<!--#endregion ThumbnailNavigator Skin End -->
+			
+			<!--#region Bullet Navigator Skin Begin -->
+			<!-- Help: http://www.jssor.com/development/slider-with-bullet-navigator-jquery.html -->
+			<style>
+				/* jssor slider bullet navigator skin 01 css */
+				/*
+				.jssorb01 div           (normal)
+				.jssorb01 div:hover     (normal mouseover)
+				.jssorb01 .av           (active)
+				.jssorb01 .av:hover     (active mouseover)
+				.jssorb01 .dn           (mousedown)
+				*/
+				.jssorb01 {
+					position: absolute;
+				}
+				.jssorb01 div, .jssorb01 div:hover, .jssorb01 .av {
+					position: absolute;
+					/* size of bullet elment */
+					width: 12px;
+					height: 12px;
+					filter: alpha(opacity=70);
+					opacity: .7;
+					overflow: hidden;
+					cursor: pointer;
+					border: #000 1px solid;
+				}
+				.jssorb01 div { background-color: gray; }
+				.jssorb01 div:hover, .jssorb01 .av:hover { background-color: #d3d3d3; }
+				.jssorb01 .av { background-color: #fff; }
+				.jssorb01 .dn, .jssorb01 .dn:hover { background-color: #555555; }
+			</style>
+			<!-- bullet navigator container -->
+			<div u="navigator" class="jssorb01" style="bottom: 16px; right: 10px;">
+				<!-- bullet navigator item prototype -->
+				<div u="prototype"></div>
+			</div>
+			<!--#endregion Bullet Navigator Skin End -->
+			
+			<!--#region Arrow Navigator Skin Begin -->
+			<!-- Help: http://www.jssor.com/development/slider-with-arrow-navigator-jquery.html -->
+			<style>
+				/* jssor slider arrow navigator skin 05 css */
+				/*
+				.jssora05l                  (normal)
+				.jssora05r                  (normal)
+				.jssora05l:hover            (normal mouseover)
+				.jssora05r:hover            (normal mouseover)
+				.jssora05l.jssora05ldn      (mousedown)
+				.jssora05r.jssora05rdn      (mousedown)
+				*/
+				.jssora05l, .jssora05r {
+					display: block;
+					position: absolute;
+					/* size of arrow element */
+					width: 40px;
+					height: 40px;
+					cursor: pointer;
+					background: url(../img/a17.png) no-repeat;
+					overflow: hidden;
+				}
+				.jssora05l { background-position: -10px -40px; }
+				.jssora05r { background-position: -70px -40px; }
+				.jssora05l:hover { background-position: -130px -40px; }
+				.jssora05r:hover { background-position: -190px -40px; }
+				.jssora05l.jssora05ldn { background-position: -250px -40px; }
+				.jssora05r.jssora05rdn { background-position: -310px -40px; }
+			</style>
+		</div>
+	  </td>
+	  <!-- 水务要闻 -->
+	  <td width="495">
+		<table id="table21" border="0" cellpadding="0" cellspacing="0" >
+		  <!-- 水务要闻标题 -->
+		  <tr>
+			<td width="490">
+			  <img src="" alt="水务要闻" height="30" width="490"/>
+			</td>
+		  </tr>
+		  <tr>
+		<!-- 水务要闻内容 -->
+		  <td width="490" valign="top">
+			<table border="0" width="100%" id="table211" cellspacing="10" cellpadding="0">
+				
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1258">
+						安阳市节水办开展节水征文活动
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-20</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1257">
+						安阳市节水办开通微信公众平台
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-19</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1253">
+						安阳市节水办开展＂庆元宵·猜灯谜＂活动 
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-5</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1252">
+						安阳市节水办组织参加全市水利系统学雷锋志愿服务义扫活动
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-5</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1251">
+						安阳市节水办组织参加＂3·5学雷锋志愿服务＂活动
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-4</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1250">
+						节水办召开2015年度工作目标签订会
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-2</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1249">
+						市水利局建管科到节水办进行安全生产检查
+					  </a></td>
+					  <td width="18%"><span style="">2015-2-13</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1247">
+						安阳市2015年市区取用水计划全面下发
+					  </a></td>
+					  <td width="18%"><span style="">2015-2-6</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1246">
+						2015年水平衡测试通知开始下发
+					  </a></td>
+				  <td width="18%"><span style="">2015-2-6</span></td>
+				</tr>     
+			   
+			  </table>
+		  </td>
+		</tr>
+		</table>
+	  </td>
+	  <!-- 公告栏 -->
+	  <td width="270">
+	  <table width="100%" border="0" cellspacing="0" cellpadding="0" id="table22">
+          <tr>
+            <td><img src="images/index_09_1.jpg" alt="公告栏" width="270" height="52" border="0" usemap="#Map2" /></td>
+          </tr>
+          <tr>
+            <td height="304" valign="top" background="images/index_09_2.jpg" bgcolor="#FFFFFF"><table border="0" width="100%" id="table221" cellspacing="10" cellpadding="0">
+              
+              <tr>
+                <td height="22" >&nbsp;<span style="font-size: 9pt"><a href="news.asp?fl=1&amp;ID=716" style= color:red>
+                                        安阳市计划节约用水办公室关于落实《建..
+                                      </a></span></td>
+                </tr>
+              
+              <tr>
+                <td height="22" >&nbsp;<span style="font-size: 9pt"><a href="news.asp?fl=1&amp;ID=1254" >
+                                        关于开展＂节俭养德--节水在行动＂系..
+                                      </a></span></td>
+                </tr>
+              
+              <tr>
+                <td height="22" >&nbsp;<span style="font-size: 9pt"><a href="news.asp?fl=1&amp;ID=1213" >
+                                        安阳市节约用水协会关于发布《安阳市节..
+                                      </a></span></td>
+                </tr>
+              
+              <tr>
+                <td height="22" >&nbsp;<span style="font-size: 9pt"><a href="news.asp?fl=1&amp;ID=1179" >
+                                        财政部 国家发展改革委关于调整公布第..
+                                      </a></span></td>
+                </tr>
+              
+              <tr>
+                <td height="22" >&nbsp;<span style="font-size: 9pt"><a href="news.asp?fl=1&amp;ID=1151" >
+                                        《国家鼓励的工业节水工艺、技术和装备..
+                                      </a></span></td>
+                </tr>
+              
+              <tr>
+                <td height="22" >&nbsp;<span style="font-size: 9pt"><a href="news.asp?fl=1&amp;ID=870" >
+                                        关于对全市节水工程进行普查的通知
+                                      </a></span></td>
+                </tr>
+              
+              <tr>
+                <td height="22" >&nbsp;<span style="font-size: 9pt"><a href="news.asp?fl=1&amp;ID=863" >
+                                        安阳市水利局安阳市节约用水协会关于发..
+                                      </a></span></td>
+                </tr>
+              
+              <tr>
+                <td height="22" >&nbsp;<span style="font-size: 9pt"><a href="news.asp?fl=1&amp;ID=839" >
+                                        安阳市节水型工艺设备器具名录入选条件..
+                                      </a></span></td>
+                </tr>
+              
+              <tr>
+                <td height="22" >&nbsp;<span style="font-size: 9pt"><a href="news.asp?fl=1&amp;ID=772" >
+                                        关于水平衡测试资质的公告 
+                                      </a></span></td>
+                </tr>
+              
+            </table></td>
+          </tr>
+        </table>
+	  </td>
+	</tr>
+	</table>
+	   
+	  <!-- 下载区、法律法规、管理机构、审批流程 -->
+	<table id="table3" border="0" cellpadding="0" cellspacing="0" width="1100" style="margin:auto">
+	<tr>
+	  <!-- 下载区、审批流程 -->
+	  <td  width="275">
+		<table id="table31" border="0" cellpadding="0" cellspacing="0">
+		  <!-- 下载区标题 -->
+          <tr>
+            <td bgcolor="#FFFFFF"><img src="images/index_14.jpg" alt="下载区" width="267" height="31" border="0"/></td>
+          </tr>
+		  <!-- 下载区内容 -->
+          <tr>
+            <td width="267" height="183" bgcolor="#FFFFFF" background="images/index_15.jpg" valign="top">
+			<table border="0" width="100%" id="table311" height="177" cellspacing="4" cellpadding="0">
+            
+				<tr>
+					<td height="21" valign="bottom">　&nbsp;<a href="news.asp?fl=1&amp;ID=1209"></a><a href="news.asp?fl=1&amp;ID=1209">
+					  关于申报2015年度用水计划指标的..
+					</a></td>
+				</tr>
+                      
+				<tr>
+					<td height="21" valign="bottom">　&nbsp;<a href="news.asp?fl=1&amp;ID=1208"></a><a href="news.asp?fl=1&amp;ID=1208">
+					  申报计划附件1
+					</a></td>
+				</tr>
+                      
+				<tr>
+					<td height="21" valign="bottom">　&nbsp;<a href="news.asp?fl=1&amp;ID=1207"></a><a href="news.asp?fl=1&amp;ID=1207">
+					  申报计划附件2
+					</a></td>
+				</tr>
+                      
+				<tr>
+					<td height="21" valign="bottom">　&nbsp;<a href="news.asp?fl=1&amp;ID=891"></a><a href="news.asp?fl=1&amp;ID=891">
+					  建设项目用水节水评估报告审核表
+					</a></td>
+				</tr>
+                      
+				<tr>
+					<td height="21" valign="bottom">　&nbsp;<a href="news.asp?fl=1&amp;ID=849"></a><a href="news.asp?fl=1&amp;ID=849">
+					  安阳市计划用水单位计划增容请表
+					</a></td>
+				</tr>
+                      
+				<tr>
+					<td height="21" valign="bottom">　&nbsp;<a href="news.asp?fl=1&amp;ID=765"></a><a href="news.asp?fl=1&amp;ID=765">
+					  安阳市建设项目节约用水设施与主体工..
+					</a></td>
+				</tr>
+                      
+			</table>
+			</td>
+          </tr>
+		  <!-- 审批流程 -->
+		  <tr>
+		    <td>
+			  <table id="table312" border="0" cellpadding="0" cellspacing="0">
+		      <!-- 审批流程标题 -->
+              <tr>
+                <td bgcolor="#FFFFFF"><img src="images/index_14.jpg" alt="审批流程" width="270" height="31" border="0"/></td>
+              </tr>
+		      <!-- 审批流程内容 -->
+              <tr>
+                <td width="270" height="120" bgcolor="#FFFFFF" background="images/index_15.jpg" valign="top">
+			    <table border="0" width="100%" id="table3121" height="177" cellspacing="4" cellpadding="0">
+            
+				  <tr>
+					<td height="21" valign="bottom">　&nbsp;<a href="news.asp?fl=1&amp;ID=1209"></a><a href="news.asp?fl=1&amp;ID=1209">
+					  关于申报2015年度用水计划指标的..
+					</a></td>
+				  </tr>
+                      
+				  <tr>
+					<td height="21" valign="bottom">　&nbsp;<a href="news.asp?fl=1&amp;ID=1208"></a><a href="news.asp?fl=1&amp;ID=1208">
+					  申报计划附件1
+					</a></td>
+				  </tr>
+                      
+				  <tr>
+					<td height="21" valign="bottom">　&nbsp;<a href="news.asp?fl=1&amp;ID=1207"></a><a href="news.asp?fl=1&amp;ID=1207">
+					  申报计划附件2
+					</a></td>
+				  </tr>
+			    </table>
+			    </td>
+              </tr>
+		      </table>
+			</td>
+		  </tr>
+		</table>
+	  </td>
+	  <!-- 法律法规 -->
+	  <td width="415">
+		<table id="table32" border="0" cellpadding="0" cellspacing="0" >
+		  <!-- 法律法规标题 -->
+		  <tr>
+			<td width="410">
+			  <img src="" alt="法律法规" height="30" width="410"/>
+			</td>
+		  </tr>
+		  <!-- 法律法规内容 -->
+		  <tr>
+		  <td width="410" valign="top">
+			<table id="table321" border="0" width="100%" cellspacing="10" cellpadding="0">
+				
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1258">
+						安阳市节水办开展节水征文活动
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-20</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1257">
+						安阳市节水办开通微信公众平台
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-19</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1253">
+						安阳市节水办开展＂庆元宵·猜灯谜＂活动 
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-5</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1252">
+						安阳市节水办组织参加全市水利系统学雷锋志愿服务义扫活动
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-5</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1251">
+						安阳市节水办组织参加＂3·5学雷锋志愿服务＂活动
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-4</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1250">
+						节水办召开2015年度工作目标签订会
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-2</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1249">
+						市水利局建管科到节水办进行安全生产检查
+					  </a></td>
+					  <td width="18%"><span style="">2015-2-13</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1247">
+						安阳市2015年市区取用水计划全面下发
+					  </a></td>
+					  <td width="18%"><span style="">2015-2-6</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1246">
+						2015年水平衡测试通知开始下发
+					  </a></td>
+				  <td width="18%"><span style="">2015-2-6</span></td>
+				</tr>     
+			   
+			  </table>
+		  </td>
+		</tr>
+		</table>
+	  </td>
+	  <!-- 待定区域 -->
+	  <td width="410">
+		<table id="table33" border="0" cellpadding="0" cellspacing="0" >
+		  <!-- 待定区域标题 -->
+		  <tr>
+			<td width="410">
+			  <img src="" alt="待定区域" height="30" width="410"/>
+			</td>
+		  </tr>
+		  <!-- 审批流程内容 -->
+		  <tr>
+		  <td width="410" valign="top">
+			<table id="table331" border="0" width="100%" cellspacing="10" cellpadding="0">
+				
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1258">
+						安阳市节水办开展节水征文活动
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-20</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1257">
+						安阳市节水办开通微信公众平台
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-19</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1253">
+						安阳市节水办开展＂庆元宵·猜灯谜＂活动 
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-5</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1252">
+						安阳市节水办组织参加全市水利系统学雷锋志愿服务义扫活动
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-5</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1251">
+						安阳市节水办组织参加＂3·5学雷锋志愿服务＂活动
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-4</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1250">
+						节水办召开2015年度工作目标签订会
+					  </a></td>
+					  <td width="18%"><span style="">2015-3-2</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1249">
+						市水利局建管科到节水办进行安全生产检查
+					  </a></td>
+					  <td width="18%"><span style="">2015-2-13</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1247">
+						安阳市2015年市区取用水计划全面下发
+					  </a></td>
+					  <td width="18%"><span style="">2015-2-6</span></td>
+				</tr>     
+				<tr>
+				  <td width="82%" height="22" ><img src="images/d.jpg" alt="" width="16" height="16" border="0"><a href="news.asp?fl=1&amp;ID=1246">
+						2015年水平衡测试通知开始下发
+					  </a></td>
+				  <td width="18%"><span style="">2015-2-6</span></td>
+				</tr>     
+			   
+			  </table>
+		  </td>
+		</tr>
+		</table>
+	  </td>
+	</tr>
+	</table>
+	 
+	<!-- 图片轮放、外部网站链接 -->
+	<table id="table4" border="0" cellpadding="0" cellspacing="0" width="1100" style="margin:auto">
+	    <!-- 图片轮放 -->
+	  <tr><td><img src="" alt="用水单位" width="1100" height="31"/></td><tr>
+	  <tr>
+		<td>
+		    <div id="scroll_div" class="scroll_div">
+              <div id="scroll_begin">
+                <ul>
+                  <li><a href="www.baidu.com" target="_blank"><img  src="images/scrollImg/安阳广播电视大厦1.jpg" /></a></li>
+                  <li><a href="www.baidu.com" target="_blank"><img  src="images/scrollImg/金海帆浴乐家园1.jpg" /></a></li>
+                  <li><a href="www.baidu.com" target="_blank"><img  src="images/scrollImg/市检察院1.jpg" /></a></li>
+                  <li><a href="www.baidu.com" target="_blank"><img  src="images/scrollImg/市人大1.jpg" /></a></li>
+                  <li><a href="www.baidu.com" target="_blank"><img  src="images/scrollImg/市中级法院1.jpg" /></a></li>
+                </ul>
+			  </div>
+              <div id="scroll_end"></div>
+			  <script type="text/javascript">ScrollImgLeft();</script>
+            </div>
+		</td>
+		  
+	  </tr>
+	</table>
+	
+	<!-- 外部链接、网页页脚 -->
+	<table id="table5" border="0" cellpadding="0" cellspacing="0" width="1100" style="margin:auto">
+	  <!-- 外部网站链接 -->
+	  <tr>
+	    <td>
+	      <table width="100%" border="0" cellspacing="0" cellpadding="0" id="table51">
+            <tr>
+              <td width="184"><a href="http://www.anyang.gov.cn" target="_blank" ><img src="images/linkImg/link01.jpg" alt="" width="180" height="72" border="0" /></a></td>
+              <td width="184"><a href="http://www.aysl.gov.cn" target="_blank"><img src="images/linkImg/link02.jpg" alt="" width="180" height="72" border="0" /></a></td>
+              <td width="184"><a href="http://www.ayjsw.com/" target="_blank"><img src="images/linkImg/link04.jpg" alt="" width="180" height="72" border="0" /></a></td>
+			  <td width="184"><a href="http://www.cnwaternews.com/" target="_blank"><img src="images/linkImg/link00.jpg" alt="" width="180" height="72" border="0" /></a></td>
+              <td width="184"><a href="http://www.hnsl.gov.cn/" target="_blank"><img src="images/linkImg/link05.jpg" alt="" width="180" height="72" border="0" /></a></td>
+              <td width="184"><a href="http://www.h2o-china.com/" target="_blank"><img src="images/linkImg/link06.jpg" alt="" width="180" height="72" border="0" /></a></td>
+            </tr>
+          </table>
+		</td>
+	  </tr>
+	  <!-- 网页页脚 -->
+	  <tr>
+	    <br>
+		<td><p align="center" style="line-height: 150%"><font color="#808080"><br>
+		主办单位:安阳市水利局地温科　　单位地址：安阳市文明大道西段83号<br>
+		电子信箱：dwdrk2009@163.com　　联系电话：3696338　　联系人：地温科<br></font></td>
+	  </tr>
+	</table>
+	</div>
+  </body>
+</html>

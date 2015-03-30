@@ -1,0 +1,36 @@
+#wholeLayoutDiv
+{
+  text-align:center;
+}
+/*图片滚动*/
+.scroll_div 
+{
+  width:1100px; 
+
+  margin:0 auto; 
+  overflow: hidden; 
+  white-space: nowrap; 
+  background:#ffffff;
+}
+.scroll_div img 
+{
+  width:165px;
+  height:160px;
+  border: 0;
+  margin: auto 8px; 
+  border:1px #efefef solid;
+}
+#scroll_begin, #scroll_end, #scroll_begin ul, #scroll_end ul, #scroll_begin ul li, #scroll_end ul li
+{
+  display:inline;
+}
+
+/*外部链接*/
+#table5
+{
+  position:relative;
+  top:10px;
+}
+
+/* 图片新闻 */
+
